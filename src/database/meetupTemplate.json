@@ -1,0 +1,25 @@
+{
+    "meetups": {
+        "fecha":"13/11/88",
+        "horaInicio":"",
+        "horaFin":"",
+        "titulo":"",
+        "descripcion":"",
+        "invitados":["email@email.com","email@email.com"],
+        "invitados2":[{"nombre":"nombre","email":"email"},{"nombre":"nombre","email":"email"},{"nombre":"nombre","email":"email"}]
+    },
+
+    "usuarios":{
+        "nombre":"",
+        "email":"",
+        "fotoUrl":"",
+        "telefono":"",
+        "notificaciones":[]
+    },
+
+    "notificaciones":{
+        "email":"email@email.com",
+        "timeStamp":"",
+        "invitacion":"texto"
+    }
+}
