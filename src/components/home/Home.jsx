@@ -40,7 +40,6 @@ const Home = () => {
             } else {
                 setAutenticado(false);
                 setTextoCarga("Redirigiendo a Login");
-                enqueueSnackbar("No hay sesión iniciada.", { "variant": "error" });
                 redirigirA('/login');
             }
             setCargando(false)
@@ -60,14 +59,10 @@ const Home = () => {
 
                     setAdmin(esteUsuario.admin);
                     setUsuario(esteUsuario);
-                    console.log("Usuario seteado:", esteUsuario)
                 }
 
             })
-        } else {
-            console.log("USUARIOS NO CARGADOS AUN")
-        }
-
+        } 
     }, [autenticado, usuarios])
 
 
@@ -92,8 +87,6 @@ const Home = () => {
                             ...doc.data(),
                             id: doc.id,
                         }))
-
-                        console.log("Seteando usuarios", data);
 
                         setUsuarios(data);
                     })

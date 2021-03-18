@@ -3,7 +3,6 @@ import { db } from './firebase'
 export const insertarMeet = async (meet) => {
     try {
         await db.collection("meetups").add(meet)
-
         return true
     } catch (error) {
         console.log(error);

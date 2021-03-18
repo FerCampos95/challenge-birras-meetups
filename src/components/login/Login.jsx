@@ -64,20 +64,10 @@ const Login = () => {
 			.then(async (result) => {
 
 				setTextoCarga("Iniciando Sesión");
-				// if (result.credential) {
-				// 	// This gives you a Google Access Token. You can use it to access the Google API.
-				// 	let token = result.credential.accessToken;
-				// 	//localStorage.setItem("token", token);
-				// }
-
 				let user = result.user;
 
 				if (user) {
 					localStorage.setItem("sesion", user.uid);
-
-					console.log('user', user);
-					console.log('result', result);
-					console.log('nuevo usuario?', result.additionalUserInfo.isNewUser);
 
 					let usuario = {
 						"nombre": user.displayName,
@@ -96,7 +86,6 @@ const Login = () => {
 
 					//reviso si ya habia una sesion previa iniciada
 					auth.onAuthStateChanged(user => {
-						console.log(user);
 						let sesion = localStorage.getItem("sesion");
 						if (user && user.uid == sesion) {
 							redirigirA('/home');
@@ -123,7 +112,6 @@ const Login = () => {
 			.auth()
 			.signInWithRedirect(provider)
 			.then(result => {
-				console.log(result);
 				setCargando(true);
 			})
 			.catch(error => {
@@ -135,7 +123,6 @@ const Login = () => {
 		e.preventDefault();
 
 		if (!pass || !email) {
-			console.log("Faltan datos");
 			enqueueSnackbar("Ingrese Usuario y Contraseña.", { "variant": "error" });
 			return;
 		}
@@ -144,7 +131,6 @@ const Login = () => {
 
 		auth.signInWithEmailAndPassword(email, pass)
 			.then((res) => {
-				console.log("Sesion iniciada", res.user);
 				localStorage.setItem("sesion", res.user.uid);
 
 				redirigirA('/home');
@@ -153,9 +139,11 @@ const Login = () => {
 				console.log(err)
 				switch (err.code) {
 					case "auth/wrong-password":
-						enqueueSnackbar("Usuario o contraseña erroneo.", { "variant": "error" });
+						enqueueSnackbar("Contraseña incorrecta.", { "variant": "error" });
 						break;
-
+					case "auth/user-not-found":
+						enqueueSnackbar("Email no registrado como usuario.", { "variant": "error" });
+						break;
 					default:
 						enqueueSnackbar(err.message, { "variant": "error" });
 						break;

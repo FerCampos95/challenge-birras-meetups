@@ -117,7 +117,6 @@ export default function MeetModal({ nombreBoton, usuario, usuarios, meetup }) {
                 fecha: fechaString
             })
 
-            console.log('meetup', meetup)
         }
     }, [meetup])
 
@@ -179,7 +178,6 @@ export default function MeetModal({ nombreBoton, usuario, usuarios, meetup }) {
 
             await notificarInvitados(meet, "creada");
             let res = await insertarMeet(meet);
-            //console.log("Alert:" + res);
             if (res) {
                 enqueueSnackbar("Meet creada con éxito.", { "variant": "success" });
                 setOpen(false);

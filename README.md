@@ -35,6 +35,10 @@ _Para poder ejecutar el proyeto se debe utilizar un archivo .env con las siguien
 * REACT_APP_APPID
 * REACT_APP_MEASUREMENTID
 
+_Y la siguiente variable que se obtiene al crear un proyecto en openweathermap.org:_
+
+* REACT_APP_APIKEYCLIMA
+
 ### Ejecutar el proyecto 🔩
 
 _Para iniciar el proyecto se deben ejecutar los siguientes comandos:_
@@ -50,6 +54,8 @@ npm run start
 ### Demo del proyecto
 
 https://challenge-birras-meetups.herokuapp.com/
+
+_**Anotacion** heroku demora aproximadamente hasta 2 o 3 minutos en volver a dejar activa la aplicacion, ya que es un servidor gratuito._
 
 **Administrador**
 

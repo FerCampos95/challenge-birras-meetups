@@ -39,54 +39,6 @@ export const notificarInvitados = async (meet, accion) => {
     }
 }
 
-// export const notificarInvitadosEdicion = async (meet) => {
-
-//     let notificacion = {
-//         email: "",
-//         timeStamp: new Date(),
-//         invitacion: `La reunión: "${meet.titulo}" ha sido editada.`,
-//         vista: false,
-//     }
-
-//     try {
-//         meet.invitados.forEach(async (invitado) => {
-//             notificacion.email = invitado.email;
-//             if (meet.admin != invitado.email) {//para que no le llegue al q creo q editor
-//                 await db.collection("notificaciones").add(notificacion)
-//             }
-//         })
-
-//         return true;
-//     } catch (error) {
-//         console.log(error);
-//         return false;
-//     }
-// }
-
-// export const notificarInvitadosEliminacion = async (meet) => {
-
-//     let notificacion = {
-//         email: "",
-//         timeStamp: new Date(),
-//         invitacion: `La reunión: "${meet.titulo}" ha sido eliminada.`,
-//         vista: false,
-//     }
-
-//     try {
-//         meet.invitados.forEach(async (invitado) => {
-//             notificacion.email = invitado.email;
-//             if (meet.admin != invitado.email) {//para que no le llegue al q creo q editor
-//                 await db.collection("notificaciones").add(notificacion)
-//             }
-//         })
-
-//         return true;
-//     } catch (error) {
-//         console.log(error);
-//         return false;
-//     }
-// }
-
 export const notificarAsistenciaMeet = async (meet, usuario, asistencia) => {
 
     let notificacion = {
@@ -113,7 +65,6 @@ export const notificacionesVistas = async (notificaciones) => {
             noti.vista = true;
             await db.collection("notificaciones").doc(noti.id).update(noti);
         })
-
 
     } catch (error) {
         console.log(error);

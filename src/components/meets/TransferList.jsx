@@ -52,16 +52,12 @@ function union(a, b) {
 }
 
 export default function TransferList({ usuarios, meet, setMeet }) {
-    //console.log('usuarios', usuarios)
     const classes = useStyles();
     const [checked, setChecked] = React.useState([]);
     const [left, setLeft] = React.useState(usuarios);
     const [right, setRight] = React.useState([]);
 
     useEffect(() => {
-        // console.log('meet.invitados', meet.invitados)
-        // console.log('usuarios', usuarios)
-
         if (meet.invitados.length > 0) {
             //let noInvitados = usuarios.slice();//voy a dejar a los no invitados
             let noInvitados = [...usuarios];//voy a dejar a los no invitados
@@ -74,7 +70,6 @@ export default function TransferList({ usuarios, meet, setMeet }) {
                 })
             })
 
-            console.log('noInvitados', noInvitados)
             setRight(meet.invitados);
             setLeft(noInvitados);
         }

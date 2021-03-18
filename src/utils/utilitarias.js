@@ -81,16 +81,10 @@ export const calcularMeetIniciada = (meet) => {
 
         let horaMeet = meet.horaInicio.split(":");//la divido en hora y minutos
 
-        console.log("comparando:"+ hora+ " con " + horaMeet[0] +" resultado ",hora >=horaMeet[0])
-
         if (hora >= horaMeet[0] && min >= horaMeet[1]) {
-            console.log("meet iniciada",meet.titulo)
-
             return true;
         }
     }
-    console.log("NO iniciada",meet.titulo)
-
     return false;
 }
 

@@ -74,9 +74,7 @@ export default function SignUp() {
 		e.preventDefault();
 
 		if (!nombre || !pass || !email || !apellido) {
-			console.log("Faltan datos");
 			enqueueSnackbar("Todos los campos son obligatorios.", { "variant": "error" });
-
 			return;
 		}
 
@@ -84,8 +82,6 @@ export default function SignUp() {
 
 		auth.createUserWithEmailAndPassword(email, pass)
 			.then(async (res) => {
-				console.log("Usuario creado", res.user)
-
 				let usuario = {
 					"nombre": nombre + " " + apellido,
 					email,

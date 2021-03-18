@@ -1,6 +1,6 @@
 export const consultarClimaSemanal = async() => {
     try {
-        const apiKey = "e8ee57b1323fb8d5cfb67cafb70fff29"
+        const apiKey = process.env.REACT_APP_APIKEYCLIMA;
         const latitud = "-34.610093"; //de caballito aprox
         const longitud = "-58.446355";
         const unidades = "metric"
@@ -8,7 +8,6 @@ export const consultarClimaSemanal = async() => {
         const excluir = "minutely,hourly" //excluye clima por minuto y por hora
 
         const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitud}&lon=${longitud}&lang=${lenguaje}&units=${unidades}&exclude=${excluir}&appid=${apiKey}`, { method: "GET" })
-
 
         let clima = await res.json();
         if (clima) {
@@ -32,7 +31,6 @@ export const consultarClimaSemanal = async() => {
 export const consultarClimaSemanalMock = async() => {
     try {
         const clima = require('./templateClima.json')
-        console.log('clima', clima)
         return clima.daily;
     } catch (error) {
         console.log(error);

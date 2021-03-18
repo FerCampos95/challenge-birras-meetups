@@ -62,8 +62,6 @@ export default function Meetup({ meet, clima, usuario, usuarios }) {
     }, [clima, meet])
 
     useEffect(() => {
-        console.log(meet);
-
         meet.invitados.forEach(invitado => {
             if (usuario && invitado.email == usuario.email) {
                 setAsistencia(true)
@@ -77,7 +75,6 @@ export default function Meetup({ meet, clima, usuario, usuarios }) {
         })
 
         let iniciada = calcularMeetIniciada(meet);
-
         setMeetIniciada(iniciada);
 
     }, [meet, usuario])

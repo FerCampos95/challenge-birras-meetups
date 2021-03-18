@@ -31,7 +31,6 @@ export default function FormDialog({ usuario }) {
 
     useEffect(() => {
         setUser(usuario);
-        console.log(usuario);
     }, [usuario])
 
     // const handleChangeCheckbox = (event) => {
@@ -43,7 +42,6 @@ export default function FormDialog({ usuario }) {
             ...user,
             [e.target.name]: e.target.value,
         })
-        console.log([e.target.name]+" : "+ e.target.value)
     }
 
     const handleClickOpen = () => {
@@ -56,7 +54,6 @@ export default function FormDialog({ usuario }) {
     };
 
     const guardarCambios = async() => {
-        console.log(user);
         if (!user || !user.nombre || !user.nombre.trim()) {
 			enqueueSnackbar("Su nombre no puede quedar vacio.", { "variant": "error" });
 			return;

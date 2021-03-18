@@ -2,10 +2,7 @@ import { db } from './firebase'
 
 export const registrarUsuario = async (usuario) => {
     try {
-
-        const res = await db.collection("usuarios").add(usuario)
-
-        console.log(res);
+        await db.collection("usuarios").add(usuario)
         return true;
     } catch (error) {
         console.log(error);
